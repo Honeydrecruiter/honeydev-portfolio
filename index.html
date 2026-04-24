@@ -45,6 +45,43 @@ nav{background:var(--slate);display:flex;align-items:center;justify-content:spac
 .btn-o{display:inline-flex;align-items:center;gap:6px;background:transparent;color:rgba(255,255,255,.65);padding:10px 20px;border-radius:8px;font-size:12px;font-weight:600;text-decoration:none;border:1.5px solid rgba(255,255,255,.18);transition:all .2s;}
 .btn-o:hover{border-color:rgba(255,255,255,.45);color:white;}
 
+/* HERO TIMELINE */
+.hero{justify-content:space-between;}
+.hero-left{display:flex;align-items:flex-start;gap:24px;position:relative;z-index:1;flex:1;}
+.hero-right{position:relative;z-index:1;flex-shrink:0;width:260px;}
+.timeline-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:18px 20px;}
+.timeline-card-title{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:16px;}
+.tl-item{display:flex;gap:12px;align-items:flex-start;margin-bottom:14px;position:relative;}
+.tl-item:last-child{margin-bottom:0;}
+.tl-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;margin-top:4px;}
+.tl-dot-active{background:var(--tc-l);}
+.tl-dot-past{background:rgba(255,255,255,.2);}
+.tl-line{position:absolute;left:3.5px;top:12px;width:1px;height:calc(100% + 6px);background:rgba(255,255,255,.08);}
+.tl-item:last-child .tl-line{display:none;}
+.tl-co{font-size:12px;font-weight:600;color:white;margin-bottom:1px;}
+.tl-role{font-size:10px;color:rgba(255,255,255,.4);margin-bottom:2px;}
+.tl-yr{font-size:9px;color:var(--tc-l);font-weight:600;}
+.tl-divider{height:1px;background:rgba(255,255,255,.06);margin:14px 0;}
+.tl-stats{display:flex;gap:8px;}
+.tl-stat{flex:1;text-align:center;}
+.tl-stat-num{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;color:white;line-height:1;}
+.tl-stat-num span{color:var(--tc-l);}
+.tl-stat-lbl{font-size:9px;color:rgba(255,255,255,.35);line-height:1.3;margin-top:2px;}
+
+/* INSIGHTS */
+.insights-bg{background:var(--cream-d);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:52px 0;}
+.insights-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px;}
+.insight-card{background:white;border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:all .22s;cursor:pointer;}
+.insight-card:hover{border-color:var(--tc);box-shadow:0 6px 28px rgba(193,96,74,.08);transform:translateY(-2px);}
+.insight-tag-bar{padding:12px 18px 0;}
+.insight-tag{display:inline-flex;align-items:center;gap:4px;background:var(--tc-p);border-radius:20px;padding:3px 10px;font-size:9px;font-weight:700;color:var(--tc);letter-spacing:.6px;text-transform:uppercase;}
+.insight-body{padding:14px 18px 18px;}
+.insight-title{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:700;color:var(--slate);line-height:1.25;margin-bottom:8px;}
+.insight-excerpt{font-size:12px;color:var(--mid);line-height:1.7;margin-bottom:14px;}
+.insight-footer{display:flex;align-items:center;justify-content:space-between;}
+.insight-read{font-size:11px;font-weight:600;color:var(--tc);display:flex;align-items:center;gap:4px;}
+.insight-min{font-size:10px;color:var(--light);}
+
 /* METRICS */
 .metrics{background:white;border-bottom:1px solid var(--border);padding:28px 40px;}
 .metrics-lbl{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--light);text-align:center;margin-bottom:20px;}
@@ -157,6 +194,9 @@ footer{background:var(--dark);padding:14px 24px;text-align:center;font-size:10px
   .m-item:nth-child(2){border-right:none;}
   .m-item{padding-bottom:18px;margin-bottom:4px;}
   .wrap{padding:0 20px;}
+  .hero-right{display:none;}
+  .hero-left{gap:16px;}
+  .insights-grid{grid-template-columns:1fr;}
   .about-grid,.builds-grid,.stories-grid{grid-template-columns:1fr;}
   .career-item{grid-template-columns:auto 1fr;}
   .c-meta{display:none;}
@@ -171,6 +211,7 @@ footer{background:var(--dark);padding:14px 24px;text-align:center;font-size:10px
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#builds">Builds</a></li>
+    <li><a href="#insights">Insights</a></li>
     <li><a href="#stories">Impact</a></li>
     <li><a href="#career">Career</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -180,15 +221,69 @@ footer{background:var(--dark);padding:14px 24px;text-align:center;font-size:10px
 <section class="hero">
   <div class="hero-orb hero-orb-1"></div>
   <div class="hero-orb hero-orb-2"></div>
-  <div class="hero-photo">H</div>
-  <div class="hero-text">
-    <div class="hero-eyebrow">18 Years · HR Leadership · Chennai, India</div>
-    <h1 class="hero-name">Honey <em>Dev</em></h1>
-    <p class="hero-role">Head of People &amp; Culture</p>
-    <p class="hero-tagline">"I don't just talk about the future of HR. I am building it."</p>
-    <div class="hero-cta">
-      <a href="#builds" class="btn-p">See What I Build</a>
-      <a href="#contact" class="btn-o">Get in Touch</a>
+  <div class="hero-left">
+    <div class="hero-photo">H</div>
+    <div class="hero-text">
+      <div class="hero-eyebrow">18 Years · HR Leadership · Chennai, India</div>
+      <h1 class="hero-name">Honey <em>Dev</em></h1>
+      <p class="hero-role">Head of People &amp; Culture</p>
+      <p class="hero-tagline">"I don't just talk about the future of HR. I am building it."</p>
+      <div class="hero-cta">
+        <a href="#builds" class="btn-p">See What I Build</a>
+        <a href="#contact" class="btn-o">Get in Touch</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="timeline-card">
+      <div class="timeline-card-title">Career Snapshot</div>
+      <div class="tl-item">
+        <div>
+          <div class="tl-dot tl-dot-active"></div>
+          <div class="tl-line"></div>
+        </div>
+        <div>
+          <div class="tl-co">Edvoy</div>
+          <div class="tl-role">Head, People &amp; Culture</div>
+          <div class="tl-yr">Current · 12 Countries</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div>
+          <div class="tl-dot tl-dot-past"></div>
+          <div class="tl-line"></div>
+        </div>
+        <div>
+          <div class="tl-co">Sulekha.com</div>
+          <div class="tl-role">Senior HR Leadership</div>
+          <div class="tl-yr">Prior Role · Chennai</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div>
+          <div class="tl-dot tl-dot-past"></div>
+        </div>
+        <div>
+          <div class="tl-co">18 Years in HR</div>
+          <div class="tl-role">HRBP + TA · Never Siloed</div>
+          <div class="tl-yr">MBA · Loyola College, Chennai</div>
+        </div>
+      </div>
+      <div class="tl-divider"></div>
+      <div class="tl-stats">
+        <div class="tl-stat">
+          <div class="tl-stat-num">400<span>+</span></div>
+          <div class="tl-stat-lbl">Employees scaled</div>
+        </div>
+        <div class="tl-stat">
+          <div class="tl-stat-num">12</div>
+          <div class="tl-stat-lbl">Countries managed</div>
+        </div>
+        <div class="tl-stat">
+          <div class="tl-stat-num">88<span>%</span></div>
+          <div class="tl-stat-lbl">Offer-to-join rate</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -266,6 +361,53 @@ footer{background:var(--dark);padding:14px 24px;text-align:center;font-size:10px
         <br>
         <span class="b-dim">Internal product at Edvoy</span>
       </div>
+    </div>
+  </div>
+</section>
+
+<section id="insights" class="insights-bg">
+  <div class="wrap">
+    <p class="ey">Insights</p>
+    <h2 class="st">Problems I have lived. Lessons I have written.</h2>
+    <p class="ss">Real situations from 18 years in HR. Not theory. Not frameworks borrowed from textbooks. What actually happened and what actually worked.</p>
+    <div class="insights-grid">
+
+      <div class="insight-card">
+        <div class="insight-tag-bar"><span class="insight-tag">Attrition</span></div>
+        <div class="insight-body">
+          <h3 class="insight-title">Why Your Attrition Problem Is Probably an Org Design Problem</h3>
+          <p class="insight-excerpt">Everyone calls it an engagement problem. It rarely is. When a BU came to me with 37% attrition and asked for an engagement initiative, I did something different. I looked at the org chart. What I found changed how I think about people problems forever.</p>
+          <div class="insight-footer">
+            <span class="insight-read">Read article &rarr;</span>
+            <span class="insight-min">5 min read</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="insight-card">
+        <div class="insight-tag-bar"><span class="insight-tag">Talent Acquisition</span></div>
+        <div class="insight-body">
+          <h3 class="insight-title">The Offer Is Not the Finish Line. Day 1 Is.</h3>
+          <p class="insight-excerpt">We were losing candidates after they said yes. Not to counter-offers. To silence. Our offer-to-join rate was 68%. The fix was not a better offer letter. It was redesigning the 30 days between offer and Day 1 as an experience, not a checklist.</p>
+          <div class="insight-footer">
+            <span class="insight-read">Read article &rarr;</span>
+            <span class="insight-min">6 min read</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="insight-card">
+        <div class="insight-tag-bar"><span class="insight-tag">HR Leadership</span></div>
+        <div class="insight-body">
+          <h3 class="insight-title">How to Tell a Senior Leader They Are Wrong Without Making It Personal</h3>
+          <p class="insight-excerpt">A BU head was managing out a manager. The data told a different story. Getting a senior leader to change course without losing face is one of the hardest things in HR. Here is exactly how I did it, word for word.</p>
+          <div class="insight-footer">
+            <span class="insight-read">Read article &rarr;</span>
+            <span class="insight-min">4 min read</span>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
