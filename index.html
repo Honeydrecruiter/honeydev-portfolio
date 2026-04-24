@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Honey Dev | Head of People &amp; Culture</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --slate:#1E293B; --slate-l:#334155; --slate-xl:#475569;
+  --tc:#C1604A; --tc-l:#D4826B; --tc-p:#FAF0ED;
+  --cream:#FAF7F2; --cream-d:#F0EBE3;
+  --dark:#111827; --mid:#6B7280; --light:#9CA3AF;
+  --border:#E5E7EB; --green:#059669; --purple:#6040A0;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--dark);overflow-x:hidden;}
+
+/* NAV */
+nav{background:var(--slate);display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:52px;position:sticky;top:0;z-index:100;}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700;color:white;}
+.nav-logo span{color:var(--tc-l);}
+.nav-links{display:flex;gap:24px;list-style:none;}
+.nav-links a{font-size:11px;font-weight:500;color:rgba(255,255,255,.5);text-decoration:none;letter-spacing:.8px;text-transform:uppercase;transition:color .2s;}
+.nav-links a:hover{color:white;}
+
+/* HERO */
+.hero{background:var(--slate);padding:48px 40px 44px;position:relative;overflow:hidden;display:flex;align-items:center;gap:40px;}
+.hero-orb{position:absolute;border-radius:50%;pointer-events:none;}
+.hero-orb-1{width:380px;height:380px;background:radial-gradient(circle,rgba(193,96,74,.16) 0%,transparent 70%);top:-100px;right:-60px;}
+.hero-orb-2{width:260px;height:260px;background:radial-gradient(circle,rgba(96,64,160,.1) 0%,transparent 70%);bottom:0;left:-50px;}
+.hero-photo{width:100px;height:100px;border-radius:50%;flex-shrink:0;background:linear-gradient(135deg,var(--slate-l),#0f172a);border:2px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:700;color:rgba(255,255,255,.3);position:relative;z-index:1;overflow:hidden;}
+.hero-photo img{width:100%;height:100%;object-fit:cover;border-radius:50%;}
+.hero-text{position:relative;z-index:1;}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:6px;background:rgba(193,96,74,.15);border:1px solid rgba(193,96,74,.3);border-radius:20px;padding:4px 12px;font-size:10px;font-weight:600;color:var(--tc-l);letter-spacing:1.2px;text-transform:uppercase;margin-bottom:12px;}
+.hero-eyebrow::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--tc-l);}
+.hero-name{font-family:'Cormorant Garamond',serif;font-size:clamp(40px,6vw,64px);font-weight:700;color:white;line-height:1;letter-spacing:-1px;margin-bottom:5px;}
+.hero-name em{font-style:italic;color:var(--tc-l);}
+.hero-role{font-size:12px;font-weight:400;color:rgba(255,255,255,.4);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px;}
+.hero-tagline{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(14px,1.8vw,18px);color:rgba(255,255,255,.6);line-height:1.55;max-width:460px;margin-bottom:22px;}
+.hero-cta{display:flex;gap:10px;flex-wrap:wrap;}
+.btn-p{display:inline-flex;align-items:center;gap:6px;background:var(--tc);color:white;padding:10px 20px;border-radius:8px;font-size:12px;font-weight:600;text-decoration:none;transition:all .2s;}
+.btn-p:hover{background:var(--tc-l);transform:translateY(-1px);}
+.btn-o{display:inline-flex;align-items:center;gap:6px;background:transparent;color:rgba(255,255,255,.65);padding:10px 20px;border-radius:8px;font-size:12px;font-weight:600;text-decoration:none;border:1.5px solid rgba(255,255,255,.18);transition:all .2s;}
+.btn-o:hover{border-color:rgba(255,255,255,.45);color:white;}
+
+/* METRICS */
+.metrics{background:white;border-bottom:1px solid var(--border);padding:28px 40px;}
+.metrics-lbl{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--light);text-align:center;margin-bottom:20px;}
+.metrics-grid{display:grid;grid-template-columns:repeat(4,1fr);max-width:860px;margin:0 auto;}
+.m-item{text-align:center;padding:0 16px;border-right:1px solid var(--border);}
+.m-item:last-child{border-right:none;}
+.m-num{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:700;color:var(--slate);line-height:1;margin-bottom:4px;}
+.m-num span{color:var(--tc);}
+.m-lbl{font-size:11px;color:var(--mid);line-height:1.4;}
+
+/* SHARED */
+.wrap{max-width:940px;margin:0 auto;padding:0 40px;}
+.sec{padding:52px 0;}
+.sec-sm{padding:36px 0;}
+.ey{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--tc);margin-bottom:8px;}
+.st{font-family:'Cormorant Garamond',serif;font-size:clamp(24px,4vw,36px);font-weight:700;color:var(--slate);line-height:1.1;margin-bottom:10px;}
+.ss{font-size:14px;color:var(--mid);line-height:1.65;max-width:500px;}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;margin-top:32px;align-items:start;}
+.about-text p{font-size:13px;color:var(--slate-xl);line-height:1.8;margin-bottom:12px;}
+.about-text p strong{color:var(--slate);font-weight:600;}
+.about-dark{background:var(--slate);border-radius:16px;padding:26px;}
+.ad-title{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:700;color:white;margin-bottom:3px;}
+.ad-sub{font-size:10px;color:rgba(255,255,255,.35);margin-bottom:16px;}
+.ad-div{height:1px;background:rgba(255,255,255,.07);margin-bottom:16px;}
+.ad-quote{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:rgba(255,255,255,.65);line-height:1.6;margin-bottom:12px;}
+.ad-attr{font-size:10px;color:var(--tc-l);font-weight:600;}
+.ad-bullets{margin-top:18px;display:flex;flex-direction:column;gap:8px;}
+.ad-bullet{display:flex;align-items:center;gap:8px;font-size:12px;color:rgba(255,255,255,.5);}
+.ad-bullet::before{content:'◆';color:var(--tc-l);font-size:7px;flex-shrink:0;}
+
+/* BUILDS */
+.builds-bg{background:var(--slate);padding:52px 0;position:relative;overflow:hidden;}
+.builds-bg::before{content:'';position:absolute;width:460px;height:460px;border-radius:50%;background:radial-gradient(circle,rgba(193,96,74,.09) 0%,transparent 70%);top:-150px;right:-80px;pointer-events:none;}
+.b-ey{color:var(--tc-l);}
+.b-st{color:white;}
+.b-ss{color:rgba(255,255,255,.45);}
+.builds-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px;}
+.build-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:26px;transition:all .25s;position:relative;overflow:hidden;}
+.build-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(193,96,74,.06) 0%,transparent 60%);opacity:0;transition:opacity .25s;}
+.build-card:hover{border-color:rgba(193,96,74,.3);transform:translateY(-2px);}
+.build-card:hover::before{opacity:1;}
+.b-icon{width:38px;height:38px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:17px;margin-bottom:14px;}
+.bi-tc{background:rgba(193,96,74,.15);}
+.bi-pu{background:rgba(96,64,160,.2);}
+.b-name{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:white;margin-bottom:2px;}
+.b-tag{font-size:10px;color:var(--tc-l);font-weight:600;letter-spacing:.8px;text-transform:uppercase;margin-bottom:10px;}
+.b-desc{font-size:12px;color:rgba(255,255,255,.5);line-height:1.75;margin-bottom:14px;}
+.b-stat{display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:7px;padding:5px 10px;font-size:11px;color:rgba(255,255,255,.55);margin-bottom:14px;}
+.b-stat strong{color:white;font-weight:700;}
+.b-link{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:600;color:var(--tc-l);text-decoration:none;transition:gap .2s;}
+.b-link:hover{gap:9px;}
+.b-dim{color:rgba(255,255,255,.25);font-size:11px;}
+
+/* STORIES */
+.stories-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px;}
+.story-card{background:white;border:1px solid var(--border);border-radius:14px;padding:22px;transition:all .2s;}
+.story-card:hover{border-color:var(--tc);box-shadow:0 5px 24px rgba(193,96,74,.07);transform:translateY(-2px);}
+.s-num{font-size:10px;font-weight:700;color:var(--tc);letter-spacing:.8px;margin-bottom:7px;}
+.s-title{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700;color:var(--slate);margin-bottom:9px;line-height:1.2;}
+.s-body{font-size:12px;color:var(--mid);line-height:1.75;margin-bottom:12px;}
+.s-out{display:flex;align-items:center;gap:7px;background:var(--tc-p);border-radius:7px;padding:7px 11px;font-size:11px;font-weight:600;color:var(--tc);}
+
+/* CAREER */
+.career-bg{background:var(--cream-d);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:52px 0;}
+.career-list{margin-top:24px;display:flex;flex-direction:column;gap:10px;}
+.career-item{background:white;border:1px solid var(--border);border-radius:13px;padding:18px 22px;display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:center;transition:all .2s;}
+.career-item:hover{border-color:var(--slate-l);box-shadow:0 3px 14px rgba(30,41,59,.05);}
+.c-logo{width:42px;height:42px;border-radius:11px;background:var(--slate);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:700;color:white;flex-shrink:0;}
+.c-logo.tc{background:var(--tc);}
+.c-logo.pu{background:var(--purple);}
+.c-info h3{font-size:14px;font-weight:600;color:var(--slate);margin-bottom:2px;}
+.c-info p{font-size:12px;color:var(--mid);line-height:1.5;}
+.c-meta{text-align:right;flex-shrink:0;}
+.c-role{font-size:11px;font-weight:600;color:var(--slate);margin-bottom:2px;}
+.c-loc{font-size:10px;color:var(--light);}
+
+/* CERTS */
+.certs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:24px;}
+.cert-card{background:white;border:1px solid var(--border);border-radius:11px;padding:16px;text-align:center;transition:all .2s;}
+.cert-card:hover{border-color:var(--tc);}
+.cert-icon{font-size:18px;margin-bottom:6px;}
+.cert-name{font-size:11px;font-weight:600;color:var(--slate);margin-bottom:2px;line-height:1.3;}
+.cert-body{font-size:10px;color:var(--light);}
+
+/* CONTACT */
+.contact-bg{background:var(--slate);padding:52px 0;text-align:center;position:relative;overflow:hidden;}
+.contact-bg::before{content:'';position:absolute;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(193,96,74,.11) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;}
+.contact-inner{max-width:500px;margin:0 auto;padding:0 24px;position:relative;z-index:1;}
+.c-ey{color:var(--tc-l);}
+.c-title{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,5vw,40px);font-weight:700;color:white;line-height:1.1;margin-bottom:12px;}
+.c-sub{font-size:13px;color:rgba(255,255,255,.4);line-height:1.65;margin-bottom:28px;}
+.c-links{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+.cl{display:inline-flex;align-items:center;gap:7px;padding:11px 20px;border-radius:9px;font-size:12px;font-weight:600;text-decoration:none;transition:all .2s;}
+.cl-em{background:var(--tc);color:white;}
+.cl-em:hover{background:var(--tc-l);transform:translateY(-1px);}
+.cl-li{background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.14);color:rgba(255,255,255,.65);}
+.cl-li:hover{border-color:rgba(255,255,255,.4);color:white;}
+
+footer{background:var(--dark);padding:14px 24px;text-align:center;font-size:10px;color:rgba(255,255,255,.2);}
+
+@media(max-width:768px){
+  nav{padding:0 20px;}
+  .nav-links{display:none;}
+  .hero{flex-direction:column;padding:32px 20px 36px;gap:22px;align-items:flex-start;}
+  .hero-photo{width:76px;height:76px;font-size:26px;}
+  .metrics{padding:24px 20px;}
+  .metrics-grid{grid-template-columns:repeat(2,1fr);}
+  .m-item:nth-child(2){border-right:none;}
+  .m-item{padding-bottom:18px;margin-bottom:4px;}
+  .wrap{padding:0 20px;}
+  .about-grid,.builds-grid,.stories-grid{grid-template-columns:1fr;}
+  .career-item{grid-template-columns:auto 1fr;}
+  .c-meta{display:none;}
+  .certs-grid{grid-template-columns:repeat(2,1fr);}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Honey <span>Dev</span></div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#builds">Builds</a></li>
+    <li><a href="#stories">Impact</a></li>
+    <li><a href="#career">Career</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
+  <div class="hero-photo">H</div>
+  <div class="hero-text">
+    <div class="hero-eyebrow">18 Years · HR Leadership · Chennai, India</div>
+    <h1 class="hero-name">Honey <em>Dev</em></h1>
+    <p class="hero-role">Head of People &amp; Culture</p>
+    <p class="hero-tagline">"I don't just talk about the future of HR. I am building it."</p>
+    <div class="hero-cta">
+      <a href="#builds" class="btn-p">See What I Build</a>
+      <a href="#contact" class="btn-o">Get in Touch</a>
+    </div>
+  </div>
+</section>
+
+<section class="metrics">
+  <p class="metrics-lbl">Impact at a Glance</p>
+  <div class="metrics-grid">
+    <div class="m-item">
+      <div class="m-num">40<span>+</span></div>
+      <div class="m-lbl">Scaled to 400+ employees across 12 countries at Edvoy</div>
+    </div>
+    <div class="m-item">
+      <div class="m-num">68<span>%</span></div>
+      <div class="m-lbl">Offer-to-join lifted from 68% to 88% via AI pre-boarding</div>
+    </div>
+    <div class="m-item">
+      <div class="m-num">37<span>%</span></div>
+      <div class="m-lbl">BU attrition cut from 37% to under 25% in two quarters</div>
+    </div>
+    <div class="m-item">
+      <div class="m-num">65<span>%</span></div>
+      <div class="m-lbl">Leadership roles filled through internal promotions</div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap sec">
+    <p class="ey">Background</p>
+    <h2 class="st">Operator first. Builder by instinct.</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>Eighteen years in HR across high-growth, multi-geography environments, always spanning both HRBP and Talent Acquisition, never siloed. At <strong>Edvoy</strong>, I built the people function from scratch across 12 countries simultaneously: India, UK, Bangladesh, the Middle East and Africa.</p>
+        <p>The work has never been transactional. Performance frameworks, org redesigns, cross-border employment law, 99.8% payroll accuracy, 100% statutory compliance. These are not HR metrics. They are business outcomes dressed in HR language.</p>
+        <p>But somewhere along the way, I stopped waiting for the right tools to exist. I started building them.</p>
+      </div>
+      <div class="about-dark">
+        <div class="ad-title">The Builder Mindset</div>
+        <div class="ad-sub">Why an HR leader builds AI products</div>
+        <div class="ad-div"></div>
+        <div class="ad-quote">"The best people leaders understand that the future of HR is not a process. It is a product."</div>
+        <div class="ad-attr">Honey Dev, Head of People &amp; Culture</div>
+        <div class="ad-bullets">
+          <div class="ad-bullet">25 hours saved per month via AI tools at Edvoy</div>
+          <div class="ad-bullet">Time-to-start reduced 23% via TA control tower</div>
+          <div class="ad-bullet">Referral hires up 40% through structured programme</div>
+          <div class="ad-bullet">96% goal completion across the organisation</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="builds" class="builds-bg">
+  <div class="wrap">
+    <p class="ey b-ey">What I Build</p>
+    <h2 class="st b-st">AI products built by an HR practitioner.</h2>
+    <p class="ss b-ss">Not demos. Not concept decks. Live products built on real data, solving real problems I have lived inside.</p>
+    <div class="builds-grid">
+      <div class="build-card">
+        <div class="b-icon bi-tc">🎯</div>
+        <div class="b-name">HireMatch</div>
+        <div class="b-tag">AI Hiring Co-Pilot</div>
+        <p class="b-desc">A two-sided AI hiring platform covering recruiter tools (JD Creator, CV Scoring, Boolean Builder, Live Call Guide, Bulk Screening) and candidate tools (CV Health Check, AI Rewrite, Gap Report, Mock Interview). Built on the Claude API by Anthropic. Deployed live.</p>
+        <div class="b-stat">Real data: <strong>Offer-to-join 68% to 88%</strong> at Edvoy</div>
+        <br>
+        <a href="https://hirematch.in" target="_blank" rel="noopener" class="b-link">Visit hirematch.in &rarr;</a>
+      </div>
+      <div class="build-card">
+        <div class="b-icon bi-pu">✦</div>
+        <div class="b-name">Nova</div>
+        <div class="b-tag">Employee Listening Intelligence</div>
+        <p class="b-desc">A conversational AI that checks in with every employee at milestones that matter: Day 15, 30, 60, 90, Year 1, Year 3. Not a survey form. A real conversation, milestone-timed, built around the drivers that predict whether someone stays or leaves. CEO dashboard with happiness scores, eNPS, manager health and urgency signals.</p>
+        <div class="b-stat">Purpose: <strong>No employee falls through the cracks</strong></div>
+        <br>
+        <span class="b-dim">Internal product at Edvoy</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="stories">
+  <div class="wrap sec">
+    <p class="ey">Real Impact</p>
+    <h2 class="st">Four stories. Real outcomes.</h2>
+    <p class="ss">Specific situations, root cause diagnosis, interventions and results. No aggregated claims.</p>
+    <div class="stories-grid">
+      <div class="story-card">
+        <div class="s-num">01 · Org Design</div>
+        <h3 class="s-title">Attrition was a symptom. The cause was structure.</h3>
+        <p class="s-body">Student Recruitment BU attrition was 37%. The business diagnosed an engagement problem. I investigated and found the real cause: managers had 12 to 15 direct reports, no career ladders, no role clarity. Redesigned the structure, created pods with team leads, built career frameworks from scratch.</p>
+        <div class="s-out">📉 Attrition 37% to under 25% within two quarters</div>
+      </div>
+      <div class="story-card">
+        <div class="s-num">02 · Employee Experience</div>
+        <h3 class="s-title">The gap between offer and Day 1 was losing us people.</h3>
+        <p class="s-body">Offer-to-join was 68%. I mapped the full candidate journey and found two silent drop-off points: between offer and Day 1, and in the first 30 days. Implemented Compup.io pre-boarding with digital offer letters, PAN verification, structured engagement touchpoints and joining probability scoring.</p>
+        <div class="s-out">📈 Offer-to-join from 68% to 88%</div>
+      </div>
+      <div class="story-card">
+        <div class="s-num">03 · Cross-Border ER</div>
+        <h3 class="s-title">A termination done wrong across borders, caught in time.</h3>
+        <p class="s-body">A manager in India terminated an employee in the Middle East following Indian norms. Middle East employment law is significantly more protective. I flagged the issue, engaged local legal counsel before any action, honoured full local requirements and built a cross-border termination protocol as a result.</p>
+        <div class="s-out">⚖️ Zero legal claims filed. Protocol now embedded.</div>
+      </div>
+      <div class="story-card">
+        <div class="s-num">04 · Influencing Leadership</div>
+        <h3 class="s-title">A manager managed out for the wrong reasons.</h3>
+        <p class="s-body">A BU head was performance-managing out a manager. I investigated and found the real cause: inequitable lead allocation. I built a data case and presented it without making the BU head lose face: "I am not saying you are wrong about the outcome. I am saying we have not diagnosed the cause correctly."</p>
+        <div class="s-out">✅ BU head came around. Manager turned it around in 60 days.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="career" class="career-bg">
+  <div class="wrap">
+    <p class="ey">Experience</p>
+    <h2 class="st">Where I have built.</h2>
+    <div class="career-list">
+      <div class="career-item">
+        <div class="c-logo">E</div>
+        <div class="c-info">
+          <h3>Edvoy</h3>
+          <p>Built people function from 40 to 400+ across 12 countries. India, UK, Bangladesh, Middle East and Africa simultaneously. Alongside this role, built two AI products (HireMatch and Nova) that solve problems I live inside as an HR practitioner.</p>
+        </div>
+        <div class="c-meta">
+          <div class="c-role">Head, People &amp; Culture</div>
+          <div class="c-loc">Current · Chennai</div>
+        </div>
+      </div>
+      <div class="career-item">
+        <div class="c-logo tc">S</div>
+        <div class="c-info">
+          <h3>Sulekha.com</h3>
+          <p>15% attrition reduction through targeted programmes. 40% improvement in hiring efficiency through ATS adoption.</p>
+        </div>
+        <div class="c-meta">
+          <div class="c-role">Senior HR Leadership</div>
+          <div class="c-loc">Prior role · Chennai</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap sec-sm">
+    <p class="ey">Credentials</p>
+    <h2 class="st">Education &amp; Certifications.</h2>
+    <div class="certs-grid">
+      <div class="cert-card"><div class="cert-icon">🎓</div><div class="cert-name">MBA, Human Resources</div><div class="cert-body">Loyola College, Chennai</div></div>
+      <div class="cert-card"><div class="cert-icon">📊</div><div class="cert-name">Aon Certified</div><div class="cert-body">Performance Management</div></div>
+      <div class="cert-card"><div class="cert-icon">🔒</div><div class="cert-name">POSH Certified</div><div class="cert-body">Prevention of Sexual Harassment</div></div>
+      <div class="cert-card"><div class="cert-icon">🌐</div><div class="cert-name">GDPR Certified</div><div class="cert-body">Data Protection Fundamentals</div></div>
+      <div class="cert-card"><div class="cert-icon">🏆</div><div class="cert-name">Visionary Leader</div><div class="cert-body">Triumphs of Talent, 2024</div></div>
+      <div class="cert-card"><div class="cert-icon">⭐</div><div class="cert-name">Allies of Woman</div><div class="cert-body">Woman of Impact, 2025</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact-bg">
+  <div class="contact-inner">
+    <p class="ey c-ey">Get in Touch</p>
+    <h2 class="c-title">Let's talk people strategy.</h2>
+    <p class="c-sub">18 years of applied HR leadership. Two live AI products. One conviction: the future of HR is built, not just managed.</p>
+    <div class="c-links">
+      <a href="mailto:reachme@honeydev.co" class="cl cl-em">✉ reachme@honeydev.co</a>
+      <a href="https://linkedin.com/in/honey-dev-bab33422" target="_blank" rel="noopener" class="cl cl-li">in LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<footer>Honey Dev · Chennai, India · Built with intention.</footer>
+
+<script>
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    e.preventDefault();
+    document.querySelector(a.getAttribute('href'))?.scrollIntoView({behavior:'smooth'});
+  });
+});
+</script>
+</body>
+</html>
