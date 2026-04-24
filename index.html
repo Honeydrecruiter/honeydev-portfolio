@@ -19,6 +19,12 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--dark);
 
 /* NAV */
 nav{background:var(--slate);display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:52px;position:sticky;top:0;z-index:100;}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px;}
+.hamburger span{display:block;width:22px;height:2px;background:rgba(255,255,255,.7);border-radius:2px;transition:all .25s;}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
 .nav-logo{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700;color:white;}
 .nav-logo span{color:var(--tc-l);}
 .nav-links{display:flex;gap:24px;list-style:none;}
@@ -185,22 +191,88 @@ nav{background:var(--slate);display:flex;align-items:center;justify-content:spac
 footer{background:var(--dark);padding:14px 24px;text-align:center;font-size:10px;color:rgba(255,255,255,.2);}
 
 @media(max-width:768px){
-  nav{padding:0 20px;}
-  .nav-links{display:none;}
-  .hero{flex-direction:column;padding:32px 20px 36px;gap:22px;align-items:flex-start;}
-  .hero-photo{width:76px;height:76px;font-size:26px;}
-  .metrics{padding:24px 20px;}
-  .metrics-grid{grid-template-columns:repeat(2,1fr);}
-  .m-item:nth-child(2){border-right:none;}
-  .m-item{padding-bottom:18px;margin-bottom:4px;}
-  .wrap{padding:0 20px;}
+  /* NAV */
+  nav{padding:0 16px;height:48px;}
+  .nav-links{display:none;position:absolute;top:48px;left:0;right:0;background:var(--slate);flex-direction:column;gap:0;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.08);z-index:99;}
+  .nav-links.open{display:flex;}
+  .nav-links li a{display:block;padding:11px 20px;font-size:12px;letter-spacing:.5px;}
+  .hamburger{display:flex;}
+
+  /* HERO */
+  .hero{flex-direction:column;padding:28px 16px 32px;gap:0;align-items:flex-start;}
+  .hero-left{flex-direction:column;gap:14px;width:100%;}
+  .hero-photo{width:72px;height:72px;font-size:24px;}
+  .hero-eyebrow{font-size:9px;padding:3px 10px;}
+  .hero-name{font-size:38px;letter-spacing:-.5px;}
+  .hero-role{font-size:11px;margin-bottom:10px;}
+  .hero-tagline{font-size:14px;margin-bottom:18px;max-width:100%;}
+  .hero-cta{gap:8px;}
+  .btn-p,.btn-o{padding:9px 16px;font-size:11px;}
   .hero-right{display:none;}
-  .hero-left{gap:16px;}
-  .insights-grid{grid-template-columns:1fr;}
-  .about-grid,.builds-grid,.stories-grid{grid-template-columns:1fr;}
-  .career-item{grid-template-columns:auto 1fr;}
+
+  /* METRICS */
+  .metrics{padding:20px 16px;}
+  .metrics-lbl{margin-bottom:16px;}
+  .metrics-grid{grid-template-columns:repeat(2,1fr);gap:0;}
+  .m-item{padding:0 12px 16px;border-right:none;border-bottom:1px solid var(--border);}
+  .m-item:nth-child(odd){border-right:1px solid var(--border);}
+  .m-item:nth-child(3),.m-item:nth-child(4){border-bottom:none;padding-top:16px;}
+  .m-num{font-size:30px;}
+  .m-lbl{font-size:10px;}
+
+  /* SHARED */
+  .wrap{padding:0 16px;}
+  .sec{padding:40px 0;}
+  .sec-sm{padding:28px 0;}
+  .st{font-size:26px;}
+  .ss{font-size:13px;}
+
+  /* ABOUT */
+  .about-grid{grid-template-columns:1fr;gap:20px;margin-top:20px;}
+  .about-text p{font-size:13px;}
+  .about-dark{padding:20px;}
+  .ad-quote{font-size:15px;}
+
+  /* BUILDS */
+  .builds-bg{padding:40px 0;}
+  .builds-grid{grid-template-columns:1fr;gap:12px;margin-top:20px;}
+  .build-card{padding:20px;}
+  .b-name{font-size:20px;}
+
+  /* INSIGHTS */
+  .insights-bg{padding:40px 0;}
+  .insights-grid{grid-template-columns:1fr;gap:12px;margin-top:20px;}
+  .insight-title{font-size:16px;}
+  .insight-excerpt{font-size:12px;}
+
+  /* STORIES */
+  .stories-grid{grid-template-columns:1fr;gap:12px;margin-top:20px;}
+  .story-card{padding:18px;}
+  .s-title{font-size:16px;}
+  .s-body{font-size:12px;}
+  .s-out{font-size:10px;padding:6px 10px;}
+
+  /* CAREER */
+  .career-bg{padding:40px 0;}
+  .career-list{margin-top:18px;gap:8px;}
+  .career-item{grid-template-columns:auto 1fr;padding:14px 16px;gap:12px;}
   .c-meta{display:none;}
-  .certs-grid{grid-template-columns:repeat(2,1fr);}
+  .c-logo{width:38px;height:38px;border-radius:10px;font-size:14px;}
+  .c-info h3{font-size:13px;}
+  .c-info p{font-size:11px;}
+
+  /* CERTS */
+  .certs-grid{grid-template-columns:repeat(2,1fr);gap:8px;margin-top:18px;}
+  .cert-card{padding:14px 12px;}
+  .cert-icon{font-size:16px;margin-bottom:5px;}
+  .cert-name{font-size:11px;}
+
+  /* CONTACT */
+  .contact-bg{padding:40px 0;}
+  .c-title{font-size:28px;}
+  .c-sub{font-size:12px;margin-bottom:22px;}
+  .c-links{flex-direction:column;align-items:center;gap:8px;}
+  .cl{width:100%;max-width:280px;justify-content:center;padding:12px 16px;}
 }
 </style>
 </head>
@@ -208,14 +280,17 @@ footer{background:var(--dark);padding:14px 24px;text-align:center;font-size:10px
 
 <nav>
   <div class="nav-logo">Honey <span>Dev</span></div>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#builds">Builds</a></li>
-    <li><a href="#insights">Insights</a></li>
-    <li><a href="#stories">Impact</a></li>
-    <li><a href="#career">Career</a></li>
-    <li><a href="#contact">Contact</a></li>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#about" onclick="closeMenu()">About</a></li>
+    <li><a href="#builds" onclick="closeMenu()">Builds</a></li>
+    <li><a href="#insights" onclick="closeMenu()">Insights</a></li>
+    <li><a href="#stories" onclick="closeMenu()">Impact</a></li>
+    <li><a href="#career" onclick="closeMenu()">Career</a></li>
+    <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
   </ul>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
 <section class="hero">
@@ -508,9 +583,20 @@ footer{background:var(--dark);padding:14px 24px;text-align:center;font-size:10px
 <footer>Honey Dev · Chennai, India · Built with intention.</footer>
 
 <script>
+function toggleMenu(){
+  const h=document.getElementById('hamburger');
+  const n=document.getElementById('nav-links');
+  h.classList.toggle('open');
+  n.classList.toggle('open');
+}
+function closeMenu(){
+  document.getElementById('hamburger').classList.remove('open');
+  document.getElementById('nav-links').classList.remove('open');
+}
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
   a.addEventListener('click',e=>{
     e.preventDefault();
+    closeMenu();
     document.querySelector(a.getAttribute('href'))?.scrollIntoView({behavior:'smooth'});
   });
 });
